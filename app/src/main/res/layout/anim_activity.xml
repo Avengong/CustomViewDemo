@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    >
+   <TextView
+       android:id="@+id/tv_anim"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="anim test "/>
+    <Button
+        android:id="@+id/btn_anim_valueanim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="valueAnimator"
+        android:onClick="valueAnimator"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/tv_anim"
+        />
+    <Button
+        android:id="@+id/btn_anim_chapter_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="chapter_One"
+        android:onClick="chapterOne"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_anim_valueanim"
+        app:layout_constraintVertical_bias="5"
+        />
+</android.support.constraint.ConstraintLayout>
