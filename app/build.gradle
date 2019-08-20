@@ -43,5 +43,9 @@ dependencies {
 }
 repositories {
     mavenCentral()
-    google()
+//    google()
+    maven {
+        url 'https://maven.aliyun.com/repository/google/'
+    }
+
 }

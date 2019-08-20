@@ -22,6 +22,7 @@ class SpiderView : View {
     private var mSides: Int = 6
     private var mAngel: Double = 0.0
     private var mList = ArrayList<SpiderPoint>()
+    val gapRadius = 40
 
     //继承三个构造方法
     constructor (context: Context?) : this(context, null)
@@ -29,11 +30,11 @@ class SpiderView : View {
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
 
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-
+        init()
     }
 
     init {
-        init()
+
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -47,7 +48,7 @@ class SpiderView : View {
             spiderPoint.mX = (mCenterX + mRadius * Math.cos((mAngel * i))).toFloat()
             spiderPoint.mY = (mCenterY + mRadius * Math.sin((mAngel * i))).toFloat()
             mList.add(spiderPoint)
-            Log.d(TAG, "spiderPointX: ${spiderPoint.mX} spiderPointY:${spiderPoint.mY} i:$i")
+//            Log.d(TAG, "spiderPointX: ${spiderPoint.mX} spiderPointY:${spiderPoint.mY} i:$i")
         }
         postInvalidate()
     }
@@ -57,33 +58,63 @@ class SpiderView : View {
         mPaint.style = Paint.Style.STROKE
         mPaint.strokeWidth = 4f
         mPaint.color = Color.BLACK
-        mAngel = 360.0 / mSides
-        mAngel = 60.0
+        mAngel = Math.PI * 2 / mSides
+//        mAngel = 60.0
 
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        mCenterX = width / 2
-        mCenterY = height / 2
-        mRadius = Math.min(mCenterX, mCenterY) / 2 * 0.5f
-
+        Log.d(TAG, " centx:$mCenterX  centy:$mCenterY ")
+        //绘制网格
         var path = Path()
         path.reset()
-        for (i in 0 until mSides) {
-            if (i == 0) {
-                path.moveTo(mCenterX + mRadius, mCenterY.toFloat())
-            } else {
-                if (i == 1 || i == 2) {
-                    var x: Float = (mCenterX + mRadius * Math.cos((mAngel * i))).toFloat()
-                    var y: Float = (mCenterY + mRadius * Math.sin((mAngel * i))).toFloat()
-                    Log.d(TAG, " i:$i  angle:${mAngel * i} cos:${mRadius * Math.cos(mAngel * i)}  sin:${mRadius * Math.sin(mAngel * i)}")
+        for (k in 0..5) {
+            var changeRadius = mRadius - k * gapRadius
+            Log.d(TAG, " k:$k  ")
+            for (i in 0 until mSides) {
+                if (i == 0) {
+                    path.moveTo(mCenterX + changeRadius.toFloat(), mCenterY.toFloat())
+                } else {
+                    var x = 0f
+                    var y = 0f
+                    val angel = mAngel * i
+                    x = (mCenterX + changeRadius * Math.cos(-angel)).toFloat()
+                    y = (mCenterY + changeRadius * Math.sin(-angel)).toFloat()
+//                    Log.d(TAG, " i:$i  angle:$angel cos:${mRadius * Math.cos(angel)}  sin:${mRadius * Math.sin(angel)}")
                     path.lineTo(x, y)
+
                 }
             }
+            path.close()
+            canvas!!.drawPath(path, mPaint)
         }
-//        path.close()
-        canvas?.drawPath(path, mPaint)
+
+        //绘制网格中线
+//        path.moveTo(mCenterX.toFloat(), mCenterY.toFloat())
+        for (i in 0 until mSides) {
+            var x: Float = 0f
+            var y: Float = 0f
+            val angel = mAngel * i
+            x = (mCenterX + mRadius * Math.cos(-angel)).toFloat()
+            y = (mCenterY + mRadius * Math.sin(-angel)).toFloat()
+//                    Log.d(TAG, " i:$i  angle:$angel cos:${mRadius * Math.cos(angel)}  sin:${mRadius * Math.sin(angel)}")
+            path.lineTo(x, y)
+            canvas!!.drawLine(mCenterX.toFloat(), mCenterY.toFloat(), x, y, mPaint)
+            mPaint.textSize = 33f
+            canvas.drawText("技能", x, y, mPaint)
+
+        }
+        //画数据
+
+
+
+
+
+
+
+
+
     }
 
 
