@@ -20,4 +20,6 @@ public class CHapterView extends View {
         super(context, attrs, defStyleAttr);
 
     }
+
+    private int[] mddata = new int[]{2, 2, 3, 4, 5, 6};
 }

@@ -23,12 +23,12 @@ class ChapterOneView @JvmOverloads constructor(context: Context, attributeSet: A
         mPaint.strokeWidth = 4f
 
         //rectf +arcTo
-//        var path = Path()
+//        var mPath = Path()
 //        var rect = RectF(0f, 0f, 200f, 200f)
-//        path.moveTo(10f,10f)
-//        path.arcTo(rect, -90f, 90f,false)
-////        path.close()
-//        canvas!!.drawPath(path, mPaint)
+//        mPath.moveTo(10f,10f)
+//        mPath.arcTo(rect, -90f, 90f,false)
+////        mPath.close()
+//        canvas!!.drawPath(mPath, mPaint)
 //        mPaint.color=Color.BLUE
 //        canvas!!.drawRect(rect,mPaint)
 
@@ -41,14 +41,14 @@ class ChapterOneView @JvmOverloads constructor(context: Context, attributeSet: A
 //        val region1 = Region(Rect(30, 30, 300, 300))
 //        region.set(region1)
 
-        //region 的 setPath(Path path,Region clip)
-//        val path = Path()
+        //region 的 setMPath(Path mPath,Region clip)
+//        val mPath = Path()
         //counter-clockwise --ccw; clockwise--cw 跟后续文字顺序有关
-//        path.addOval(RectF(30f, 30f, 100f, 300f), Path.Direction.CCW)
+//        mPath.addOval(RectF(30f, 30f, 100f, 300f), Path.Direction.CCW)
 //        val region = Region()
 //        mPaint.color = Color.BLUE
-//        canvas?.drawPath(path, mPaint)
-//        region.setPath(path, Region(30, 30, 100, 100))
+//        canvas?.drawPath(mPath, mPaint)
+//        region.setMPath(mPath, Region(30, 30, 100, 100))
 //        drawRegion(canvas, region)
 
         //region 最重要的功能是用来做区域相交操作
@@ -86,29 +86,29 @@ class ChapterOneView @JvmOverloads constructor(context: Context, attributeSet: A
         //圆角矩形路径
 //        val ccwRect = RectF(50f, 50f, 250f, 250f)
 //        val cwRect = RectF(300f, 50f, 500f, 250f)
-//        val path = Path()
+//        val mPath = Path()
 //
-//        path.addRoundRect(ccwRect,20f,20f,Path.Direction.CCW)
+//        mPath.addRoundRect(ccwRect,20f,20f,Path.Direction.CCW)
 //        //第一个左上角x y椭圆半径 一次类推
 //        val array = floatArrayOf(20f, 20f, 10f, 10f, 5f, 5f, 30f, 5f)
-//        path.addRoundRect(cwRect,array,Path.Direction.CCW)
-//        canvas!!.drawPath(path,mPaint)
+//        mPath.addRoundRect(cwRect,array,Path.Direction.CCW)
+//        canvas!!.drawPath(mPath,mPaint)
 
-        //path 的填充模式fox
+        //mPath 的填充模式fox
 //        mPaint.style=Paint.Style.FILL
 //        mPaint.color=Color.RED
-//        val path=Path()
-//        path.addRect(RectF(100f,100f,200f,200f),Path.Direction.CCW)
-//        path.addCircle(200f,200f,50f,Path.Direction.CCW)
-//        path.fillType=Path.FillType.INVERSE_WINDING
-//        canvas!!.drawPath(path,mPaint)
+//        val mPath=Path()
+//        mPath.addRect(RectF(100f,100f,200f,200f),Path.Direction.CCW)
+//        mPath.addCircle(200f,200f,50f,Path.Direction.CCW)
+//        mPath.fillType=Path.FillType.INVERSE_WINDING
+//        canvas!!.drawPath(mPath,mPaint)
 
-        //path 重置
+        //mPath 重置
 
         //会清除数据，但不会清楚filltype
-//        path.reset()
+//        mPath.reset()
         //不会清除数据，但会清楚filltype
-//        path.rewind()
+//        mPath.rewind()
 //
         //蜘蛛网效果--spiderview
 

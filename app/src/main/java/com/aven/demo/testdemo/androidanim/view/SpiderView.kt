@@ -23,6 +23,10 @@ class SpiderView : View {
     private var mAngel: Double = 0.0
     private var mList = ArrayList<SpiderPoint>()
     val gapRadius = 40
+    var mPath = Path()
+    var mDataPath = Path()
+    //技能级别
+    private val mdata = intArrayOf(6, 2, 3, 1, 5, 3)
 
     //继承三个构造方法
     constructor (context: Context?) : this(context, null)
@@ -39,9 +43,7 @@ class SpiderView : View {
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        mCenterX = w / 2
-        mCenterY = h / 2
-        mRadius = (Math.min(mCenterX, mCenterY) / 2 * 0.9f)
+
         mList.clear()
         for (i in 1..mSides) {//1  2  ..6
             var spiderPoint = SpiderPoint()
@@ -50,7 +52,7 @@ class SpiderView : View {
             mList.add(spiderPoint)
 //            Log.d(TAG, "spiderPointX: ${spiderPoint.mX} spiderPointY:${spiderPoint.mY} i:$i")
         }
-        postInvalidate()
+//        postInvalidate()
     }
 
     private fun init() {
@@ -61,20 +63,26 @@ class SpiderView : View {
         mAngel = Math.PI * 2 / mSides
 //        mAngel = 60.0
 
+
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
+
+        mCenterX = width / 2
+        mCenterY = height / 2
+        mRadius = (Math.min(mCenterX, mCenterY) / 2 * 0.9f)
         Log.d(TAG, " centx:$mCenterX  centy:$mCenterY ")
         //绘制网格
-        var path = Path()
-        path.reset()
+
+        mPath.reset()
+        mPaint.style = Paint.Style.STROKE
         for (k in 0..5) {
             var changeRadius = mRadius - k * gapRadius
             Log.d(TAG, " k:$k  ")
             for (i in 0 until mSides) {
                 if (i == 0) {
-                    path.moveTo(mCenterX + changeRadius.toFloat(), mCenterY.toFloat())
+                    mPath.moveTo(mCenterX + changeRadius.toFloat(), mCenterY.toFloat())
                 } else {
                     var x = 0f
                     var y = 0f
@@ -82,45 +90,58 @@ class SpiderView : View {
                     x = (mCenterX + changeRadius * Math.cos(-angel)).toFloat()
                     y = (mCenterY + changeRadius * Math.sin(-angel)).toFloat()
 //                    Log.d(TAG, " i:$i  angle:$angel cos:${mRadius * Math.cos(angel)}  sin:${mRadius * Math.sin(angel)}")
-                    path.lineTo(x, y)
+                    mPath.lineTo(x, y)
 
                 }
             }
-            path.close()
-            canvas!!.drawPath(path, mPaint)
+            mPath.close()
+            canvas!!.drawPath(mPath, mPaint)
         }
 
         //绘制网格中线
-//        path.moveTo(mCenterX.toFloat(), mCenterY.toFloat())
+//        mPath.moveTo(mCenterX.toFloat(), mCenterY.toFloat())
+        mPaint.style = Paint.Style.STROKE
+        mPaint.textSize = 33f
         for (i in 0 until mSides) {
-            var x: Float = 0f
-            var y: Float = 0f
             val angel = mAngel * i
-            x = (mCenterX + mRadius * Math.cos(-angel)).toFloat()
-            y = (mCenterY + mRadius * Math.sin(-angel)).toFloat()
+            var x = (mCenterX + mRadius * Math.cos(-angel)).toFloat()
+            var y = (mCenterY + mRadius * Math.sin(-angel)).toFloat()
 //                    Log.d(TAG, " i:$i  angle:$angel cos:${mRadius * Math.cos(angel)}  sin:${mRadius * Math.sin(angel)}")
-            path.lineTo(x, y)
             canvas!!.drawLine(mCenterX.toFloat(), mCenterY.toFloat(), x, y, mPaint)
-            mPaint.textSize = 33f
-            canvas.drawText("技能", x, y, mPaint)
+//            canvas.drawText("技能$i", x, y, mPaint)
 
+            val str = "abcd"
+            mPaint.textAlign = Paint.Align.RIGHT
+            canvas.drawText(str, 0, str.length, x, y, mPaint)
         }
-        //画数据
-
-
-
-
-
-
-
-
+        //画数据-4
+        mPaint.style = Paint.Style.FILL
+        mPaint.strokeCap = Paint.Cap.ROUND
+        mPaint.strokeWidth = 20f
+        mDataPath.reset()
+        for (i in 0 until mSides) {
+            var changeRadius = mRadius - (mSides - mdata[i]) * gapRadius
+            val angel = mAngel * i
+            var x = (mCenterX + changeRadius * Math.cos(-angel)).toFloat()
+            var y = (mCenterY + changeRadius * Math.sin(-angel)).toFloat()
+            canvas!!.drawCircle(x, y, 10f, mPaint)
+            if (i == 0) {
+                mDataPath.moveTo(x, y)
+            } else {
+                mDataPath.lineTo(x, y)
+            }
+        }
+        mDataPath.close()
+        mPaint.color = Color.GREEN
+        mPaint.alpha = 100
+        canvas!!.drawPath(mDataPath, mPaint)
 
     }
-
 
     class SpiderPoint {
         var mX: Float = 0f
         var mY: Float = 0f
     }
+
 
 }
