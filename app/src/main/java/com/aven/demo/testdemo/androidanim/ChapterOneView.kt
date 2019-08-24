@@ -122,11 +122,29 @@ class ChapterOneView @JvmOverloads constructor(context: Context, attributeSet: A
 //        mPaint.color = Color.RED
 //        canvas.drawRect(rect, mPaint)
 
+        //region
+//        var ovalPath=Path()
+//        ovalPath.addOval(RectF(10f,10f,100f,500f),Path.Direction.CCW)
+//
+//        var region=Region()
+//        region.setPath(ovalPath, Region(10,10,200,100))
+//
+//        drawRegion(canvas,region)
+
+
+        //裁剪动画
+
+
+
+
+
+
     }
 
     private fun drawRegion(canvas: Canvas?, region: Region) {
 
         mPaint.color = Color.BLACK
+        mPaint.style = Paint.Style.STROKE
         val regionIterator = RegionIterator(region)
         val rect = Rect()
         while (regionIterator.next(rect)) {

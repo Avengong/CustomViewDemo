@@ -29,5 +29,11 @@
         />
     <com.aven.demo.testdemo.androidanim.view.SpiderView
         android:layout_width="400dp"
-        android:layout_height="400dp"/>
+        android:layout_height="400dp"
+        android:visibility="gone"
+        />
+
+    <com.aven.demo.testdemo.androidanim.view.CutRegionView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </android.support.constraint.ConstraintLayout>
