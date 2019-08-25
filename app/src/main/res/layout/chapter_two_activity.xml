@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_chapter_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="chapter two "
+        />
+
+    <Button
+        android:id="@+id/btn_bounceInterpolator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bounceInterpolator"
+        android:textAllCaps="false"
+
+        />
+
+    <Button
+        android:id="@+id/btn_anticipateInterpolator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="anticipateInterpolator"
+        app:layout_constraintTop_toBottomOf="@+id/btn_bounceInterpolator"
+        android:textAllCaps="false"
+
+        />
+
+    <Button
+        android:id="@+id/btn_overoneshotInterpolator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="overoneshotInterpolator"
+        app:layout_constraintTop_toBottomOf="@+id/btn_anticipateInterpolator"
+        android:textAllCaps="false"
+
+        />
+
+    <Button
+        android:id="@+id/btn_antiOvershootInterpolator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="antiOvershootInterpolator"
+        app:layout_constraintTop_toBottomOf="@+id/btn_overoneshotInterpolator"
+        android:textAllCaps="false"
+
+        />
+
+    <Button
+        android:id="@+id/btn_cyclerInterpolator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cyclerInterpolator"
+        app:layout_constraintTop_toBottomOf="@+id/btn_antiOvershootInterpolator"
+        android:textAllCaps="false"
+
+        />
+
+    <Button
+        android:id="@+id/btn_camera_scale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="camera-scale"
+        app:layout_constraintTop_toBottomOf="@+id/btn_antiOvershootInterpolator"
+        android:textAllCaps="false"
+
+        />
+
+
+    <ImageView
+        android:id="@+id/iv_camera_scale"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/bg_login"
+        />
+
+    <TextView
+        android:id="@+id/tv_anim_text"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+</android.support.constraint.ConstraintLayout>

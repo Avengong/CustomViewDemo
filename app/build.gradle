@@ -1,6 +1,7 @@
 //整个文件是构建文件，告诉gradle去哪里下载对应的插件
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion = 28

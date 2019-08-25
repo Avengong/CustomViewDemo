@@ -1,4 +1,4 @@
-package com.aven.demo.testdemo.androidanim
+package com.aven.demo.testdemo.androidanim.chapter
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -8,7 +8,7 @@ import com.aven.demo.testdemo.R
 /**
  * Created by ${Aven.Gong} on 2019/8/8 0008.
  */
-class ChapterOne :AppCompatActivity() {
+class ChapterOneActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

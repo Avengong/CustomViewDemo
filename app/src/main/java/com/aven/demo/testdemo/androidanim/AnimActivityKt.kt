@@ -4,9 +4,11 @@ import android.animation.ValueAnimator
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.aven.demo.testdemo.R
+import com.aven.demo.testdemo.androidanim.chapter.ChapterOneActivity
+import com.aven.demo.testdemo.androidanim.chapter.ChapterThreeActivity
+import com.aven.demo.testdemo.androidanim.chapter.ChapterTwoActivity
 
 /**
  * Created by ${Aven.Gong} on 2019/8/8 0008.
@@ -33,18 +35,24 @@ class AnimActivityKt : Activity() {
 //            animation ->
 //            Log.d(TAG, "fraction: ${animation.animatedFraction} value:${animation.animatedValue}")
 //        })
-        ofInt.addUpdateListener(ValueAnimator.AnimatorUpdateListener { animation: ValueAnimator? ->
-            Log.d(TAG, "fraction: ${animation?.animatedFraction} value:${animation?.animatedValue}")
-        })
-        ofInt.duration = 1000
-        ofInt.start()
-
+//        ofInt.addUpdateListener(ValueAnimator.AnimatorUpdateListener { animation: ValueAnimator? ->
+//            Log.d(TAG, "fraction: ${animation?.animatedFraction} value:${animation?.animatedValue}")
+//        })
+//        ofInt.duration = 1000
+//        ofInt.start()
+        startActivity(Intent(this, ChapterThreeActivity::class.java))
 
     }
 
     fun chapterOne(view: View) {
-        var intent = Intent(this, ChapterOne::class.java)
+        var intent = Intent(this, ChapterOneActivity::class.java)
         startActivity(intent)
     }
+
+    fun chapterTwo_view_anim(view: View) {
+        var intent = Intent(this, ChapterTwoActivity::class.java)
+        startActivity(intent)
+    }
+
 
 }

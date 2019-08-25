@@ -11,15 +11,7 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="anim test "/>
-    <Button
-        android:id="@+id/btn_anim_valueanim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="valueAnimator"
-        android:onClick="valueAnimator"
-        android:textAllCaps="false"
-        app:layout_constraintTop_toBottomOf="@+id/tv_anim"
-        />
+
     <Button
         android:id="@+id/btn_anim_chapter_one"
         android:layout_width="wrap_content"
@@ -27,7 +19,27 @@
         android:text="chapter_One"
         android:onClick="chapterOne"
         android:textAllCaps="false"
-        app:layout_constraintTop_toBottomOf="@+id/btn_anim_valueanim"
         app:layout_constraintVertical_bias="5"
         />
+    <Button
+        android:id="@+id/btn_anim_chapter_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="chapter_two"
+        android:onClick="chapterTwo_view_anim"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_anim_chapter_one"
+        app:layout_constraintVertical_bias="5"
+        />
+
+    <Button
+        android:id="@+id/btn_anim_valueanim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="chapter_three_objectanim"
+        android:onClick="valueAnimator"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_anim_chapter_two"
+        />
+
 </android.support.constraint.ConstraintLayout>

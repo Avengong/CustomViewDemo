@@ -1,4 +1,4 @@
-package com.aven.demo.testdemo.androidanim
+package com.aven.demo.testdemo.androidanim.view
 
 import android.content.Context
 import android.graphics.*
