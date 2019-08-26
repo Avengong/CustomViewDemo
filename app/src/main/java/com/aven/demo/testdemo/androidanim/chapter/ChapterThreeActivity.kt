@@ -1,6 +1,7 @@
 package com.aven.demo.testdemo.androidanim.chapter
 
 import android.animation.ArgbEvaluator
+import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -36,6 +37,19 @@ class ChapterThreeActivity : AppCompatActivity() {
         btn_value_free_fail.setOnClickListener {
             doFreefail()
         }
+
+
+        btn_value_z_rotation.setOnClickListener { doZRotation() }
+
+
+    }
+
+    private fun doZRotation() {
+
+        //Z
+        val ofFloat = ObjectAnimator.ofFloat(tv_value_content, "rotation", 0f, 270f, 0f)
+        ofFloat.duration = 3000
+        ofFloat.start()
 
     }
 
