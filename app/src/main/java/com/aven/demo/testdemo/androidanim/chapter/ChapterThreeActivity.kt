@@ -42,7 +42,9 @@ class ChapterThreeActivity : AppCompatActivity() {
         btn_value_z_rotation.setOnClickListener { doZRotation() }
         btn_object_free_fall.setOnClickListener { doObjectFreeFall() }
 
+
     }
+
 
     private fun doObjectFreeFall() {
         val point1 = Point(0, 0)
