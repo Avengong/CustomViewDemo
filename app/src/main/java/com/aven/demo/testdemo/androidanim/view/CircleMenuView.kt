@@ -38,32 +38,28 @@ class CircleMenuView : FrameLayout {
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         mWidth = width
+        mRadius = width
     }
 
     private fun doShowArrangeUi() {
 
-        var originX = civ_arrange_click.x
-        var originY = civ_arrange_click.y
+        var originX = 0f
+        var originY = 0f
 
         var equaltDegree = Math.toRadians(90.0) / 4
 
-        var toX = mWidth - mRadius * Math.sin(1 * equaltDegree)
-        var toY = mWidth - mRadius * Math.cos(1 * equaltDegree)
+        var toX = -mRadius * Math.sin(1 * equaltDegree)
+        var toY = -mRadius * Math.cos(1 * equaltDegree)
         Log.d("circleMenuView", "width: $width, height:$height equaltDegree:$equaltDegree originx:$originX, originY:$originY tox:$toX, toY:$toY")
-        val ofInt = ObjectAnimator.ofInt(civ_arrange_1, "translationX", originX.toInt(), x.toInt())
+
+        val ofInt = ObjectAnimator.ofFloat(civ_arrange_1, "translationX", originX, toX.toFloat())
         ofInt.duration = 2000
-        ofInt.interpolator = AccelerateDecelerateInterpolator()
-        ofInt.start()
-
+        val translationY = ObjectAnimator.ofFloat(civ_arrange_1, "translationY", originY, toY.toFloat())
+        translationY.duration = 2000
         var animatorSet = AnimatorSet()
-//        animatorSet.play().with()
+        animatorSet.interpolator = AccelerateDecelerateInterpolator()
+        animatorSet.play(ofInt)
 
-//        for (i in 0 until 5) {
-//            var x = mRadius * Math.sin(i * equaltDegree)
-//            var y = mRadius * Math.cos(i * equaltDegree)
-
-
-//        }
 
 
     }

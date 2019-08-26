@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         >
@@ -16,7 +16,7 @@
             android:id="@+id/civ_arrange_click"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_gravity="center"
+            android:layout_gravity="right|bottom"
             android:src="@mipmap/ic_launcher"
             />
 
@@ -24,7 +24,7 @@
             android:id="@+id/civ_arrange_1"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_gravity="center"
+            android:layout_gravity="right|bottom"
             android:src="@mipmap/ic_launcher"
             />
 
@@ -32,7 +32,7 @@
             android:id="@+id/civ_arrange_2"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_gravity="center"
+            android:layout_gravity="right|bottom"
             android:src="@mipmap/ic_launcher"
             />
 
@@ -40,7 +40,7 @@
             android:id="@+id/civ_arrange_3"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_gravity="center"
+            android:layout_gravity="right|bottom"
             android:src="@mipmap/ic_launcher"
             />
 
@@ -48,7 +48,7 @@
             android:id="@+id/civ_arrange_4"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_gravity="center"
+            android:layout_gravity="right|bottom"
             android:src="@mipmap/ic_launcher"
             />
 
@@ -56,7 +56,7 @@
             android:id="@+id/civ_arrange_5"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_gravity="center"
+            android:layout_gravity="right|bottom"
             android:src="@mipmap/ic_launcher"
             />
     </FrameLayout>
