@@ -45,8 +45,15 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_value_free_fail"
         android:text="z_rotation"/>
 
+    <Button
+        android:id="@+id/btn_object_free_fall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="objectFreeFall"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_value_z_rotation"/>
 
-    <ImageView
+    <com.aven.demo.testdemo.androidanim.view.ObjectFreeFallView
         android:id="@+id/iv_free_fail"
         android:layout_width="30dp"
         android:layout_height="30dp"

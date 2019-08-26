@@ -1,8 +1,8 @@
 package com.aven.demo.testdemo.androidanim.evaluator
 
-class Point {
+public class Point(var x: Int, var y: Int) {
 
-    var x: Int = 0
-    var y: Int = 0
+
+//    class test(var x: Int, var str: String?)
 
 }

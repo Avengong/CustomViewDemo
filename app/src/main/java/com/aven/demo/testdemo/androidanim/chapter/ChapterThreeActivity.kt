@@ -40,6 +40,16 @@ class ChapterThreeActivity : AppCompatActivity() {
 
 
         btn_value_z_rotation.setOnClickListener { doZRotation() }
+        btn_object_free_fall.setOnClickListener { doObjectFreeFall() }
+
+    }
+
+    private fun doObjectFreeFall() {
+        val point1 = Point(0, 0)
+        val point2 = Point(600, 600)
+        val ofObject = ObjectAnimator.ofObject(iv_free_fail, "fallingPos", FreeFallEvaluator(), point1, point2)
+        ofObject.duration = 3000
+        ofObject.start()
 
 
     }
@@ -54,13 +64,8 @@ class ChapterThreeActivity : AppCompatActivity() {
     }
 
     private fun doFreefail() {
-        val point1 = Point()
-        point1.x = 0
-        point1.y = 0
-
-        val point2 = Point()
-        point2.x = 600
-        point2.y = 500
+        val point1 = Point(0, 0)
+        val point2 = Point(600, 600)
 
         val ofObject = ValueAnimator.ofObject(FreeFallEvaluator(), point1, point2)
         ofObject.duration = 3000

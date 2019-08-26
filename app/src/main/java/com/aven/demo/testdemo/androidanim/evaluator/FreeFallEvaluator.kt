@@ -5,7 +5,7 @@ import android.util.Log
 
 class FreeFallEvaluator : TypeEvaluator<Point> {
 
-    var point = Point()
+    var point = Point(0, 0)
     override fun evaluate(fraction: Float, startValue: Point?, endValue: Point?): Point {
         point.x = (startValue!!.x + fraction * (endValue!!.x - startValue.x)).toInt()
 
