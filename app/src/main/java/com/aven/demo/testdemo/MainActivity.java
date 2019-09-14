@@ -3,8 +3,10 @@ package com.aven.demo.testdemo;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 
 import com.aven.demo.annotations.BindView;
 import com.aven.demo.testdemo.androidanim.AnimActivityKt;
@@ -101,6 +103,12 @@ public class MainActivity extends Activity {
             a = ++a;
         }
         System.out.println("click a: " + a);
+
+
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(30, 30);
+        layoutParams.gravity = Gravity.BOTTOM | Gravity.RIGHT;
+
+
 
     }
 
