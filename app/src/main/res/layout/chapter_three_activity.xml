@@ -53,6 +53,21 @@
         android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@+id/btn_value_z_rotation"/>
 
+    <Button
+        android:id="@+id/btn_keyframe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="keyframe"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_object_free_fall"/>
+
+    <Button
+        android:id="@+id/btn_keyframeA_Z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="keyframeA-Z"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_keyframe"/>
     <com.aven.demo.testdemo.androidanim.view.ObjectFreeFallView
         android:id="@+id/iv_free_fail"
         android:layout_width="30dp"
@@ -86,7 +101,14 @@
         android:layout_height="60dp"
         android:background="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="gone"
         />
 
+    <com.aven.demo.testdemo.androidanim.view.CharTextView
+        android:id="@+id/tv_charset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:text="valueanim"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 </android.support.constraint.ConstraintLayout>

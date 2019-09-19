@@ -31,9 +31,12 @@ class ValueAnimLoadingView : ImageView {
         ofFloat.interpolator = AccelerateDecelerateInterpolator()
         ofFloat.addUpdateListener { animation ->
             val animatedValue = animation.animatedValue as Float
-            //这个不会导致重新布局,只会重绘
-            top = mTop - animatedValue.toInt()
-            bottom = mBottom - animatedValue.toInt()
+            //方法一 这个不会导致重新布局,只会重绘
+//            top = mTop - animatedValue.toInt()
+//            bottom = mBottom - animatedValue.toInt()
+            //方法二
+            translationY = -animatedValue //一样的效果
+
 
             Log.d("weizhi", "top:$top, bottom:$bottom ,animvalue: ${animatedValue.toInt()}")
 //            if (mTop>0){

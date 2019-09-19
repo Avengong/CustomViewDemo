@@ -118,8 +118,6 @@ class CircleMenuView : FrameLayout {
 
         var originX = 0f
         var originY = 0f
-
-
         for (i in 0..mSpaceNum) {
 
             var circleMenuView = mIconsContainer.getChildAt(i)
