@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.aven.demo.testdemo.R
+import com.aven.demo.testdemo.androidanim.chapter.ChapterFiveActivity
 import com.aven.demo.testdemo.androidanim.chapter.ChapterOneActivity
 import com.aven.demo.testdemo.androidanim.chapter.ChapterThreeActivity
 import com.aven.demo.testdemo.androidanim.chapter.ChapterTwoActivity
@@ -54,5 +55,8 @@ class AnimActivityKt : Activity() {
         startActivity(intent)
     }
 
-
+    fun pathAnim(view: View) {
+        var intent = Intent(this, ChapterFiveActivity::class.java)
+        startActivity(intent)
+    }
 }

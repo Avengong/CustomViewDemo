@@ -42,4 +42,13 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_anim_chapter_two"
         />
 
+    <Button
+        android:id="@+id/btn_chapter_five"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pathAnim"
+        android:text="第五章 动画进阶"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_anim_valueanim"
+        />
 </android.support.constraint.ConstraintLayout>
