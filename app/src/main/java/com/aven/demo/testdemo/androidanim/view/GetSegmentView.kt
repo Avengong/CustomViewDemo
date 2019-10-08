@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
+import com.aven.demo.testdemo.R
 
 /**
  * Created by ${Aven.Gong} on 2019/9/20 0020.
@@ -19,6 +20,9 @@ class GetSegmentView : View {
     var mPaint = Paint()
     var mPathMeasure = PathMeasure()
     var mFraction: Float = 0f
+    lateinit var mArrow: Bitmap
+    internal var pointPos = FloatArray(2)
+    internal var pointTan = FloatArray(2)
 
 
     constructor (context: Context?) : this(context, null)
@@ -50,9 +54,16 @@ class GetSegmentView : View {
         valueAnimator.interpolator = AccelerateDecelerateInterpolator()
         valueAnimator.start()
 
+
+        var options = BitmapFactory.Options()
+        options.outWidth = 15
+        options.outHeight = 15
+        mArrow = BitmapFactory.decodeResource(resources, R.drawable.returnicon, options)
+        mArrow = Bitmap.createScaledBitmap(mArrow, 20, 20, true)
     }
 
     override fun onDraw(canvas: Canvas?) {
+        //画x y 轴
         canvas!!.drawLine(0f, 0f, width.toFloat(), 0f, mPaint)
         canvas.drawLine(0f, 0f, 0f, height.toFloat(), mPaint)
         canvas.translate(100f, 100f)
@@ -69,6 +80,23 @@ class GetSegmentView : View {
 //        var startD = stopD - (0.5 - Math.abs(mFraction - 0.5)) * length
         mPathMeasure.getSegment(startD.toFloat(), stopD, mDstPath, true)
         canvas.drawPath(mDstPath, mPaint)
+
+        //draw mArrow
+        mPathMeasure.getPosTan(stopD, pointPos, pointTan)
+        val atan2 = (Math.atan2(pointTan[1].toDouble(), pointTan[0].toDouble())) * 180.0 / Math.PI
+        //方案一， 通过矩阵
+        val matrix = Matrix()
+        //后面是旋转的中心点
+        matrix.postRotate(atan2.toFloat() + 180, mArrow.width / 2.0f, mArrow.height / 2.0f)
+        matrix.postTranslate(pointPos[0] - mArrow.width / 2.0f, pointPos[1] - mArrow.height / 2.0f)
+        canvas.drawBitmap(mArrow, matrix, mPaint)
+        Log.d("GetSegmentView", "mPathMeasure atan2:$atan2")
+        // 通过旋转
+//        canvas.save()
+//        canvas.rotate(atan2.toFloat()+180,mArrow.width / 2.0f, mArrow.height / 2.0f)
+//        canvas.translate(pointPos[0], pointPos[1])
+//        canvas.drawBitmap(mArrow,0f,0f,mPaint)
+//        canvas.restore()
 
     }
 

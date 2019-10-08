@@ -14,7 +14,7 @@ import com.aven.demo.testdemo.androidanim.chapter.ChapterThreeActivity;
 public class AnimActivity extends Activity {
 
     private static final String TAG = "AnimActivity";
-
+    float[] ff = new float[2];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
