@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/avengong/Desktop/demos/customview/CustomViewDemo/resui/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/Users/avengong/Desktop/demos/customview/CustomViewDemo/resui/src/debug/shaders"/></dataSet></merger>

@@ -28,6 +28,7 @@
         <activity android:name=".androidanim.chapter.ChapterTwoActivity"/>
         <activity android:name=".androidanim.chapter.ChapterThreeActivity"/>
         <activity android:name=".androidanim.chapter.ChapterFiveActivity"/>
+        <activity android:name=".androidanim.chapter.four.ChapterFourActivity"/>
     </application>
 
 </manifest>

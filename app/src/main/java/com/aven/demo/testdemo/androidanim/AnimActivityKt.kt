@@ -10,6 +10,8 @@ import com.aven.demo.testdemo.androidanim.chapter.ChapterFiveActivity
 import com.aven.demo.testdemo.androidanim.chapter.ChapterOneActivity
 import com.aven.demo.testdemo.androidanim.chapter.ChapterThreeActivity
 import com.aven.demo.testdemo.androidanim.chapter.ChapterTwoActivity
+import com.aven.demo.testdemo.androidanim.chapter.four.ChapterFourActivity
+import kotlinx.android.synthetic.main.anim_activity.*
 
 /**
  * Created by ${Aven.Gong} on 2019/8/8 0008.
@@ -22,11 +24,16 @@ class AnimActivityKt : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.anim_activity)
 
+        btn_chapter_four.setOnClickListener {
+            startActivity(Intent(this, ChapterFourActivity::class.java))
+        }
+
     }
 
     //
     fun valueAnimator(view: View) {
         val ofInt = ValueAnimator.ofInt(0, 500)
+
 //        ofInt.addUpdateListener(ValueAnimator.AnimatorUpdateListener { animation ->
 //            val animatedFraction = animation.animatedFraction
 //            val animatedValue = animation.animatedValue

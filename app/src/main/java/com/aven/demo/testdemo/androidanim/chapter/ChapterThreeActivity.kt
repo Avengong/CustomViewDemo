@@ -43,6 +43,18 @@ class ChapterThreeActivity : AppCompatActivity() {
 
         btn_keyframe.setOnClickListener { doKeyFrameAnim() }
 
+    }
+
+    private fun doValueLoader() {
+
+        val loadAnimator = AnimatorInflater.loadAnimator(this, R.animator.value_anim) as ValueAnimator
+        loadAnimator.addUpdateListener { animation ->
+            val animatedValue = animation.animatedValue as Int
+            tv_value_content.layout(animatedValue, animatedValue, animatedValue + tv_value_content
+                    .width, animatedValue + tv_value_content.height)
+        }
+        loadAnimator.start()
+
         btn_keyframeA_Z.setOnClickListener { doKeyFrameA_Z() }
 
     }
