@@ -80,7 +80,7 @@ class PahtLoaderView : View {
         mDstPah.reset()
         val stopD = mFraction * pathMeasure.length
         //普通的转圈效果
-//        pathMeasure.getSegment(0f, mFraction * pathMeasure.length, mDstPah, true)
+//        pathMeasure.getSegment(0f, mDx * pathMeasure.length, mDstPah, true)
         //超过一半后的追赶转圈
         var startD = getStart()
         pathMeasure.getSegment(startD * pathMeasure.length, stopD, mDstPah, true)

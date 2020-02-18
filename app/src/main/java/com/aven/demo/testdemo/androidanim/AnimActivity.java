@@ -5,9 +5,10 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 
 import com.aven.demo.testdemo.R;
@@ -44,6 +45,22 @@ public class AnimActivity extends Activity {
 //                return false;
 //            }
 //        });
+
+
+        int unit = 10;
+        int total = 1000;
+        for (int i = unit; i < total; i = i + unit) {
+
+        }
+
+
+        LinearGradient linearGradient = new LinearGradient(0, 0, 0, 0, new int[]{Color.RED, Color
+                .BLUE,
+                Color
+                        .GREEN}, new
+                float[]{0, 30, 50, 100},
+                Shader
+                        .TileMode.CLAMP);
 
     }
 

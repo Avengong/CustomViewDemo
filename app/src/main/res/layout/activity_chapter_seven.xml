@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <!--<com.aven.demo.testdemo.androidanim.chapter.seven.QuadToView-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="300dp"/>-->
+    <!--<com.aven.demo.testdemo.androidanim.chapter.seven.GestureOptimizeView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"/>-->
+    <!--<com.aven.demo.testdemo.androidanim.chapter.seven.WaveView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"/>-->
+    <!--<com.aven.demo.testdemo.androidanim.chapter.seven.ShadowView-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="300dp"/>-->
+    <com.aven.demo.testdemo.androidanim.chapter.seven.ShaderView
+        android:layout_width="300dp"
+        android:layout_height="300dp"/>
+
+    <com.aven.demo.testdemo.androidanim.chapter.seven.LinearGragientView
+        android:layout_width="300dp"
+        android:layout_height="200dp"/>
+
+    <com.aven.demo.testdemo.androidanim.chapter.seven.ShimmerTextview
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我是动态测试wenzi "/>
+</LinearLayout>

@@ -77,7 +77,7 @@ class GetSegmentView : View {
         mDstPath.reset()
         var stopD = mFraction * length
         var startD = getStartD(mFraction) * length
-//        var startD = stopD - (0.5 - Math.abs(mFraction - 0.5)) * length
+//        var startD = stopD - (0.5 - Math.abs(mDx - 0.5)) * length
         mPathMeasure.getSegment(startD.toFloat(), stopD, mDstPath, true)
         canvas.drawPath(mDstPath, mPaint)
 

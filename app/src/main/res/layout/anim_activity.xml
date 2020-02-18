@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     >
    <TextView
@@ -53,6 +52,24 @@
         android:layout_height="wrap_content"
         android:onClick="pathAnim"
         android:text="第五章 动画进阶"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/btn_chapter_seven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pathAnim"
+        android:text="第七章 绘图进阶"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/btn_chapter_eight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pathAnim"
+        android:text="第八章 混合模式"
         android:textAllCaps="false"
         />
 </LinearLayout>
