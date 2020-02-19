@@ -83,9 +83,11 @@ class WaveView : View {
 
         canvas!!.drawColor(Color.WHITE)
         mPaint.style = Paint.Style.FILL
+
+
+
         mBaseHeight = height * 1 / 3f
         mDstPah.reset()
-
         mPaint.color = Color.GREEN
         val halfWaveLen = mWaveWidth / 2
 

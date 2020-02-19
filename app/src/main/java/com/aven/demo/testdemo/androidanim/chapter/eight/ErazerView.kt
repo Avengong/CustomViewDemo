@@ -1,4 +1,4 @@
-package com.aven.demo.testdemo.androidanim.chapter.seven
+package com.aven.demo.testdemo.androidanim.chapter.eight
 
 import android.content.Context
 import android.graphics.*
@@ -8,14 +8,7 @@ import android.view.MotionEvent
 import android.view.View
 import com.aven.demo.testdemo.R
 
-/**
- * 手势路径利用quadTo优化
- *
- * 手指一动，那么我就绘制路径
- *
- *
- */
-class GestureOptimizeView : View {
+class ErazerView : View {
 
     val mPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     val mCirclePah = Path()
@@ -29,13 +22,12 @@ class GestureOptimizeView : View {
     var mTanFloat = FloatArray(2)
     val mMetrics = Matrix()
 
+    lateinit var mSrcBitmap: Bitmap
+    lateinit var mDstBitmap: Bitmap
+
 
     init {
-        mPaint.color = Color.BLACK
-        mPaint.strokeWidth = 4f
-        mPaint.style = Paint.Style.STROKE
-
-
+        mPaint.color = Color.RED
     }
 
     constructor(context: Context?) : this(context, null)
@@ -47,18 +39,19 @@ class GestureOptimizeView : View {
         init()
     }
 
+    /**
+     * 需求：橡皮擦效果
+     * 思路：让图像变成透明，利用src——out
+     *
+     */
     private fun init() {
 
         setLayerType(LAYER_TYPE_SOFTWARE, null)
-        mArrowBitmap = BitmapFactory.decodeResource(resources, R.drawable.left_arrow)
+        mArrowBitmap = BitmapFactory.decodeResource(resources, R.drawable.bg_login)
+        mPaint.color = Color.RED
+        mPaint.strokeWidth = 40f  //这是关键
+        mPaint.style = Paint.Style.STROKE  //这是关键
 
-
-    }
-
-    override fun onDraw(canvas: Canvas?) {
-
-
-        canvas!!.drawPath(mDstPah, mPaint)
 
     }
 
@@ -74,6 +67,7 @@ class GestureOptimizeView : View {
                 mDstPah.moveTo(event.x, event.y)
                 preX = event.x
                 preY = event.y
+                postInvalidate()
                 return true
             }
 
@@ -107,4 +101,26 @@ class GestureOptimizeView : View {
         return super.onTouchEvent(event)
     }
 
+
+    override fun onDraw(canvas: Canvas?) {
+
+//        canvas!!.drawColor(Color.RED)
+        val s = "阳戌香这个宝宝菜，^_^"
+        mPaint.textSize = 40f
+        mPaint.strokeWidth = 5f
+        val textLen = mPaint.measureText(s)
+        canvas!!.drawText(s, width / 2f - textLen / 2f, height / 2f, mPaint)
+        val saveLayer = canvas!!.saveLayer(0f, 0f, width.toFloat(), height.toFloat(), null, Canvas.ALL_SAVE_FLAG)
+        mPaint.strokeWidth = 50f
+        val w = width
+        val h = w * height / width
+        canvas.drawBitmap(mArrowBitmap, null, Rect(0, 0, w, h), mPaint)
+        mPaint.xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
+        canvas.drawPath(mDstPah, mPaint)
+        mPaint.xfermode = null
+
+        canvas.restoreToCount(saveLayer)
+
+
+    }
 }

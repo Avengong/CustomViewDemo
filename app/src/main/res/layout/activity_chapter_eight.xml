@@ -4,4 +4,15 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
+    <com.aven.demo.testdemo.androidanim.chapter.eight.PorterDuffXfermodeView
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
+
+    <com.aven.demo.testdemo.androidanim.chapter.eight.ErazerView
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
+
+    <com.aven.demo.testdemo.androidanim.chapter.eight.TextWave_DSTINView
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
 </LinearLayout>
