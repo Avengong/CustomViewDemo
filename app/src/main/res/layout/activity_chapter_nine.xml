@@ -4,4 +4,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
+    <com.aven.demo.testdemo.androidanim.chapter.nineandten.TelescopteView
+        android:layout_width="200dp"
+        android:layout_height="400dp"/>
 </LinearLayout>

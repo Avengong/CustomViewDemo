@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
+import android.graphics.Matrix;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +22,7 @@ public class AnimActivity extends Activity {
 
     private static final String TAG = "AnimActivity";
     float[] ff = new float[2];
-
+    Matrix mMatrix = new Matrix();
     float[] ss = new float[2];
 
     @Override

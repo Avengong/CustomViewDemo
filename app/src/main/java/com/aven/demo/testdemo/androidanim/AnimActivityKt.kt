@@ -12,6 +12,7 @@ import com.aven.demo.testdemo.androidanim.chapter.ChapterThreeActivity
 import com.aven.demo.testdemo.androidanim.chapter.ChapterTwoActivity
 import com.aven.demo.testdemo.androidanim.chapter.eight.ChapterEightActivity
 import com.aven.demo.testdemo.androidanim.chapter.four.ChapterFourActivity
+import com.aven.demo.testdemo.androidanim.chapter.nineandten.ChapterNineActivity
 import com.aven.demo.testdemo.androidanim.chapter.seven.ChapterSevenActivity
 import kotlinx.android.synthetic.main.anim_activity.*
 
@@ -36,6 +37,8 @@ class AnimActivityKt : Activity() {
         btn_chapter_eight.setOnClickListener {
             startActivity(Intent(this, ChapterEightActivity::class.java))
         }
+
+        btn_chapter_nine.setOnClickListener { startActivity(Intent(this, ChapterNineActivity::class.java)) }
     }
 
     //

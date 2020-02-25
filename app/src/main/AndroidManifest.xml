@@ -31,6 +31,7 @@
         <activity android:name=".androidanim.chapter.four.ChapterFourActivity"/>
         <activity android:name=".androidanim.chapter.seven.ChapterSevenActivity"/>
         <activity android:name=".androidanim.chapter.eight.ChapterEightActivity"/>
+        <activity android:name=".androidanim.chapter.nineandten.ChapterNineActivity"/>
     </application>
 
 </manifest>
