@@ -15,6 +15,11 @@ import android.view.View;
 import com.aven.demo.testdemo.R;
 import com.aven.demo.testdemo.androidanim.chapter.ChapterThreeActivity;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
 /**
  * Created by ${Aven.Gong} on 2019/8/8 0008.
  */
@@ -54,6 +59,13 @@ public class AnimActivity extends Activity {
 
         }
 
+        File file = new File("");
+        File[] files = file.listFiles();
+
+        for (int i = 0; i < file.length(); i++) {
+
+        }
+
 
         LinearGradient linearGradient = new LinearGradient(0, 0, 0, 0, new int[]{Color.RED, Color
                 .BLUE,
@@ -62,7 +74,6 @@ public class AnimActivity extends Activity {
                 float[]{0, 30, 50, 100},
                 Shader
                         .TileMode.CLAMP);
-
 
     }
 
@@ -76,4 +87,17 @@ public class AnimActivity extends Activity {
     }
 
 
+    public void setFf(InputStream is) throws IOException {
+
+
+        byte[] bytes = new byte[1022];
+        int len = -1;
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        while ((len = is.read(bytes)) != -1) {
+            byteArrayOutputStream.write(bytes, 0, len);
+
+
+        }
+
+    }
 }
